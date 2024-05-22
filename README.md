@@ -12,8 +12,11 @@ En este microservicio se gestiona el backend y en frontend donde el usuario podr
 * Activacion de la cuenta via correo electronico
 * Modificar los datos de la cuenta
 
+## Requisitos para ejecutar el proyecto:
+ * Python 3.8+
+ * Django 4.0+
 
-## Para ejecutar el proyecto
+## Comando para ejecutar el proyecto
 
 ### Activar virtualenv
 
