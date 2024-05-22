@@ -1,0 +1,70 @@
+
+
+<!DOCTYPE html>
+{% extends 'shared_layout/base.html' %}
+{% load static %}
+
+{% block title %}
+Edit Profile
+{% endblock title %}
+
+{% block contents %}
+<style>
+    .small-input {
+        width: 300px; 
+    }
+    .form-group {
+        margin-bottom: 15px;
+    }
+    .form-group .errorlist {
+        color: red;
+        margin-top: 5px;
+    }
+</style>
+<h1>Edit Profile</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    <div class="form-group">
+        {{ form.first_name.label_tag }}
+        {{ form.first_name }}
+        {{ form.first_name.errors }}
+    </div>
+    <div class="form-group">
+        {{ form.last_name.label_tag }}
+        {{ form.last_name }}
+        {{ form.last_name.errors }}
+    </div>
+    <div class="form-group">
+        {{ form.username.label_tag }}
+        {{ form.username }}
+        {{ form.username.errors }}
+    </div>
+    <div class="form-group">
+        {{ form.email.label_tag }}
+        {{ form.email }}
+        {{ form.email.errors }}
+    </div>
+    <div class="form-group">
+        {{ form.cedula.label_tag }}
+        {{ form.cedula }}
+        {{ form.cedula.errors }}
+    </div>
+    <div class="form-group">
+        {{ form.telefono.label_tag }}
+        {{ form.telefono }}
+        {{ form.telefono.errors }}
+    </div>
+    <div class="form-group">
+        {{ form.direccion.label_tag }}
+        {{ form.direccion }}
+        {{ form.direccion.errors }}
+    </div>
+    <div class="form-group">
+        {{ form.password.label_tag }}
+        {{ form.password }}
+        {{ form.password.errors }}
+    </div>
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+</form>
+{% endblock contents %}

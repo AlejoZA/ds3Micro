@@ -1,0 +1,86 @@
+
+
+<!DOCTYPE html>
+{% extends 'shared_layout/base.html' %}
+{% load static %}
+
+{% block title %}
+Register
+{% endblock title %}
+
+{% block contents %}
+<style>
+    .small-input {
+        width: 300px; 
+    }
+    .form-group {
+        margin-bottom: 15px;
+    }
+    .form-group .errorlist {
+        color: red;
+        margin-top: 5px;
+    }
+</style>
+<h1>Register</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    <div class="form-group">
+        {{ form.first_name.label_tag }}
+        {{ form.first_name }}
+        {{ form.first_name.errors }}
+    </div>
+    <div class="form-group">
+        {{ form.last_name.label_tag }}
+        {{ form.last_name }}
+        {{ form.last_name.errors }}
+    </div>
+    <div class="form-group">
+        {{ form.username.label_tag }}
+        {{ form.username }}
+        {{ form.username.errors }}
+    </div>
+    <div class="form-group">
+        {{ form.email.label_tag }}
+        {{ form.email }}
+        {{ form.email.errors }}
+    </div>
+    <div class="form-group">
+        {{ form.cedula.label_tag }}
+        {{ form.cedula }}
+        {{ form.cedula.errors }}
+    </div>
+    <div class="form-group">
+        {{ form.telefono.label_tag }}
+        {{ form.telefono }}
+        {{ form.telefono.errors }}
+    </div>
+    <div class="form-group">
+        {{ form.direccion.label_tag }}
+        {{ form.direccion }}
+        {{ form.direccion.errors }}
+    </div>
+    <div class="form-group">
+        {{ form.password1.label_tag }}
+        {{ form.password1 }}
+        {{ form.password1.errors }}
+    </div>
+    <div class="form-group">
+        {{ form.password2.label_tag }}
+        {{ form.password2 }}
+        {{ form.password2.errors }}
+    </div>
+    <button type="submit" class="btn btn-primary">Register</button>
+</form>
+<div class="my-2">
+    <small class="text-muted">
+        Forgot your password? <a class="ml-2" href="{% url 'users:forgot_password' %}">Restore password</a>
+    </small>
+</div>
+
+<div class="my-2">
+    <small class="text-muted">
+        Already have an account? <a class="ml-2" href="{% url 'users:login' %}">Sign In</a>
+    </small>
+</div>
+{% endblock contents %}
