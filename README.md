@@ -18,6 +18,8 @@ En este microservicio se gestiona el backend y en frontend donde el usuario podr
 
 ## Comando para ejecutar el proyecto
 
+
+
 ### Activar virtualenv
 
 Para windows:
@@ -26,7 +28,7 @@ py -m pip install --user virtualenv
 py -m venv env
 ```
 
-### Instalar dependencias
+### Instalar las dependencias
 
 Usando el archivo requirements.txt
 ```
