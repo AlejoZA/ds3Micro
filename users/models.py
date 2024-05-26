@@ -6,6 +6,8 @@ from django.utils.translation import gettext_lazy as _
 from django.conf import settings
 from os import path
 
+# model 
+
 def get_profile_picture_filepath(instance, filename):
     filename = filename.split('.')[-1]
     return path.join('profile_images', '{}profile_image.{}'.format(instance.pk, filename))

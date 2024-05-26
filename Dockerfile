@@ -35,6 +35,9 @@ USER appuser
 # Copia el codigo fuente al contenedor
 COPY . .
 
+ENV DB_HOST=${DBHOST}
+ENV DB_NAME=${DBNAME}
+
 # Puerto de la app
 EXPOSE 8000
 
