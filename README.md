@@ -16,7 +16,14 @@ En este microservicio se gestiona el backend y en frontend donde el usuario podr
  * Python 3.8+
  * Django 4.0+
 
-## Comando para ejecutar el proyecto
+## Ejecutando pruebas
+
+Utilizar el comando:
+```
+python3 manage.py test
+```
+
+## Ejecutando el proyecto
 
 
 

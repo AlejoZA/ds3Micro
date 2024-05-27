@@ -15,8 +15,6 @@ def get_profile_picture_filepath(instance, filename):
 class CustomUser(AbstractUser):
     first_name = models.CharField(_('first name'), max_length=30)
     last_name = models.CharField(_('last name'), max_length=30)
-    profile_picture = models.ImageField(
-        _('profile picture'), upload_to=get_profile_picture_filepath, null=True, blank=True)
     bio = models.TextField(_('Bio'), max_length=500, blank=True)
     short_bio = models.TextField(_('Short Bio'), max_length=250, blank=True)
     source = models.CharField(_('source'), max_length=50, blank=True)
