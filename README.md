@@ -22,6 +22,7 @@ Utilizar el comando:
 ```
 python3 manage.py test
 ```
+Recuerda: debes tener instalado djangorestframework 
 
 ## Ejecutando el proyecto
 

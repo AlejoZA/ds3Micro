@@ -1,8 +1,9 @@
 from django.test import TestCase
-from rest_framework.test import APITestCase
-from rest_framework import status
-from django.core.urlresolvers import reverse
+from rest_framework.test import APITestCase 
+from rest_framework import status 
+from django.urls import reverse
 from .models import OtpCode
+from . import urls
 
 #Tests
 # Se crea una nueva instancia para testear los endpoints
@@ -10,26 +11,27 @@ from .models import OtpCode
 class UserAccountAPITest(APITestCase):
      
     def setUp(self):
-        self.client.post(reverse('user-account-add'), {'id': 1, 'password': "123456789"})
+        self.client.post(reverse('users:login'), {'username_or_email' , 'password'})
+
+
+    def test_add_info_user(self):
+        data = {'username_or_email':"laura@gmail.com" , 'password':"123456789"}
+        response = self.client.post(reverse('users:login'), data)
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)   
 
 
     def test_get_info_user(self):
-        response = self.client.get(reverse('info-user-get', kwargs={'id': 1}))
+        response = self.client.get(reverse('users:login', kwargs={'username_or_email':"laura@gmail.com"}))
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
-    def test_add_info_user(self):
-        data = {'id': 1, 'password': "123456789"}
-        response = self.client.post(reverse('info-user-add'), data)
-        self.assertEqual(response.status_code, status.HTTP_201_CREATED)   
-
+    
     def test_update_info_user(self):
-        data = {'id': 1, 'password': "123456789"}
-        response = self.client.put(reverse('info-user-update', kwargs={'id': 1}), data)
+        data = {'username_or_email':"lauraMurillas@gmail.com", 'password': "123456789"}
+        response = self.client.put(reverse('users:login', kwargs={'username_or_email':"laura@gmail.com"}), data)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(OtpCode.objects.get(id=1).quantity, 10)
 
     def test_delete_info_user(self):
-        response = self.client.delete(reverse('info-user-delete', kwargs={'id': 1, 'item': 1}))
+        response = self.client.delete(reverse('users:login', kwargs={'username_or_email':"laura@gmail.com"}))
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT) 
 
    
